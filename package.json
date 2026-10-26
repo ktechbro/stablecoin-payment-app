@@ -1,0 +1,21 @@
+{
+  "name": "stablecoin-payment-app",
+  "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build:packages": "pnpm --filter @stablecoin/domain --filter @stablecoin/solana --filter @stablecoin/db build",
+    "dev": "pnpm build:packages && pnpm --filter @stablecoin/api --filter @stablecoin/web --parallel dev",
+    "build": "pnpm -r --if-present build",
+    "test": "pnpm build:packages && pnpm -r --if-present test",
+    "typecheck": "pnpm build:packages && pnpm -r --if-present typecheck",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "db:migrate": "pnpm --filter @stablecoin/db migrate"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

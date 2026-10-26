@@ -1,0 +1,12 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+allowBuilds:
+  bigint-buffer: true
+  bufferutil: true
+  esbuild: true
+  utf-8-validate: true
+
+overrides:
+  utf-8-validate: "^5.0.2"
